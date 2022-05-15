@@ -37,16 +37,21 @@ html {
 
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__close/popup__close.css);
+
 @import url(./blocks/form/__container/form__container.css);
+@import url(./blocks/form/__container/_auth/form__container_auth.css);
 @import url(./blocks/form/__body/form__body.css);
 @import url(./blocks/form/__heading/form__heading.css);
+@import url(./blocks/form/__heading/_auth/form__heading_auth.css);
 @import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__input/_auth/form__input_auth.css);
 @import url(./blocks/form/__input/_type/form__input_type_error.css);
 @import url(./blocks/form/__error/form__error.css);
 @import url(./blocks/form/__error/_visible/form__error_visible.css);
 @import url(./blocks/form/__submit/form__submit.css);
+@import url(./blocks/form/__submit/_auth/form__submit_auth.css);
 @import url(./blocks/form/__submit/_disabled/form__submit_disabled.css);
-@import url(./blocks/popup/__close/popup__close.css);
 
 @import url(./blocks/popup/__image/popup__image.css);
 @import url(./blocks/popup/__image-container/popup__image-container.css);

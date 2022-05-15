@@ -1,0 +1,9 @@
+.form__input_auth {
+  border-bottom: 2px solid #ccc;
+  background-color: black;
+  box-sizing: border-box;
+}
+
+.form__input_auth:last-of-type {
+  margin-bottom: 216px;
+}

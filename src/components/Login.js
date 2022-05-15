@@ -9,8 +9,7 @@ const Login = () => {
         required
         minLength={2}
         maxLength={30}
-        className="form__input form__input_value_about"
-        style={{backgroundColor: "black", borderBottom: "2px solid white"}}
+        className="form__input form__input_auth"
       />
       <span className="popup__error popup__error_type_about"></span>
       <input
@@ -18,8 +17,7 @@ const Login = () => {
         placeholder="Пароль"
         name="link"
         required
-        className="form__input form__input_value_link"
-        style={{backgroundColor: "black", borderBottom: "2px solid white"}}
+        className="form__input form__input_auth"
       />
     </Form>
   )
