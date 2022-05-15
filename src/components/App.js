@@ -1,16 +1,23 @@
 import ProtectedRoute from "./ProtectedRoute";
 import MyProfile from "./MyProfile";
 import { useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Header from "./Header";
+import Login from "./Login";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   return (
-    <Switch>
-      <ProtectedRoute path="/" loggedIn={loggedIn} component = {MyProfile}/>
-      <Route path="sign-up"></Route>
-      <Route path="sign-in"></Route>
-    </Switch>
+    <div className="page">
+      <Header />
+      <Routes>
+        <Route path="/" element={
+          <ProtectedRoute loggedIn={loggedIn} component = {MyProfile}/>}/>
+        <Route path="/signup"/>
+        <Route path="/signin" element={
+          <Login/>}/>
+      </Routes>
+    </div>
   );
 }
 
