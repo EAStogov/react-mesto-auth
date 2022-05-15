@@ -121,7 +121,7 @@ const MyProfile = ({isLoggedIn, unSign}) => {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <>
-      <Header isLoggedIn={isLoggedIn} userEmail={'userEmail'} authAction='Выйти' onClick={unSign} route='/signin'/>
+      <Header isLoggedIn={isLoggedIn} userEmail={'userEmail@yandex.ru'} authAction='Выйти' onClick={unSign} route='/signin'/>
         <Main
           onEditProfile={handleEditProfileClick}
           onAddPlace={handleAddPlaceClick}
