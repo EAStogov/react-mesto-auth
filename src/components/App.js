@@ -6,16 +6,20 @@ import Header from "./Header";
 import Login from "./Login";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState(true);
+  function unSign() {
+    setLoggedIn(false);
+  }
   return (
     <div className="page">
-      <Header />
       <Routes>
         <Route path="/" element={
-          <ProtectedRoute loggedIn={loggedIn} component = {MyProfile}/>}/>
+          <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <MyProfile isLoggedIn={isLoggedIn} unSign={unSign}/>
+          </ProtectedRoute>}/>
         <Route path="/signup"/>
         <Route path="/signin" element={
-          <Login/>}/>
+          <Login isLoggedIn={isLoggedIn}/>}/>
       </Routes>
     </div>
   );

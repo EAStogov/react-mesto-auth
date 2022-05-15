@@ -9,8 +9,9 @@ import CurrentUserContext from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
+import Header from "./Header";
 
-const MyProfile = () => {
+const MyProfile = ({isLoggedIn, unSign}) => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
@@ -120,6 +121,7 @@ const MyProfile = () => {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <>
+      <Header isLoggedIn={isLoggedIn} userEmail={'userEmail'} authAction='Выйти' onClick={unSign} route='/signin'/>
         <Main
           onEditProfile={handleEditProfileClick}
           onAddPlace={handleAddPlaceClick}
