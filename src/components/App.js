@@ -2,8 +2,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import MyProfile from "./MyProfile";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Header from "./Header";
 import Login from "./Login";
+import Register from "./Register";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(true);
@@ -14,10 +14,12 @@ function App() {
     <div className="page">
       <Routes>
         <Route path="/" element={
-          <ProtectedRoute isLoggedIn={isLoggedIn}>
+          <ProtectedRoute isLoggedIn={true}>
             <MyProfile isLoggedIn={isLoggedIn} unSign={unSign}/>
           </ProtectedRoute>}/>
-        <Route path="/signup"/>
+        <Route path="/signup" element={
+          <Register isLoggedIn={isLoggedIn}/>
+        }/>
         <Route path="/signin" element={
           <Login isLoggedIn={isLoggedIn}/>}/>
       </Routes>

@@ -56,6 +56,9 @@ html {
 @import url(./blocks/form/__submit/_auth/form__submit_auth.css);
 @import url(./blocks/form/__submit/_disabled/form__submit_disabled.css);
 
+@import url(./blocks/register/__sign-in/register__sign-in.css);
+@import url(./blocks/register/__link/register__link.css);
+
 @import url(./blocks/popup/__image/popup__image.css);
 @import url(./blocks/popup/__image-container/popup__image-container.css);
 @import url(./blocks/popup/__image-description/popup__image-description.css);

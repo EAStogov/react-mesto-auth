@@ -1,10 +1,11 @@
+import { NavLink } from "react-router-dom";
 import Form from "./Form";
 import Header from "./Header";
-const Login = (isLoggedIn) => {
+const Register = (isLoggedIn) => {
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} authAction='Регистрация' route='/signup'/>
-      <Form name="login" title="Вход" isForAuth={true} submitButtonText="Войти">
+      <Header isLoggedIn={isLoggedIn} authAction='Войти' route='/signin'/>
+      <Form name="register" title="Регистрация" isForAuth={true} submitButtonText="Зарегистрироваться">
         <input
           type="email"
           placeholder="Email"
@@ -23,7 +24,8 @@ const Login = (isLoggedIn) => {
           className="form__input form__input_auth"
         />
       </Form>
+      <p className="register__sign-in">Уже зарегистрированы? <NavLink to='/signin' className="register__link page__button">Войти</NavLink></p>
     </>
   )
 }
-export default Login;
+export default Register;
