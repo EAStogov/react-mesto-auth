@@ -1,5 +1,4 @@
 import "../index.css";
-import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
@@ -120,8 +119,7 @@ const MyProfile = () => {
   }
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="page">
-        <Header />
+      <>
         <Main
           onEditProfile={handleEditProfileClick}
           onAddPlace={handleAddPlaceClick}
@@ -159,7 +157,7 @@ const MyProfile = () => {
         />
 
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-      </div>
+      </>
     </CurrentUserContext.Provider>
   );
 };
