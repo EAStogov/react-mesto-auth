@@ -27,9 +27,9 @@ function EditAvatarPopup(props) {
         placeholder="Ссылка на картинку"
         name="avatar"
         required
-        className="popup__input popup__input_value_avatar"
+        className="form__input form__input_value_avatar"
       />
-      <span className="popup__error popup__error_type_avatar"></span>
+      <span className="form__error form__error_type_avatar"></span>
     </PopupWithForm>
   );
 }

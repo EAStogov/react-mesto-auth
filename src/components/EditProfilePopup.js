@@ -39,9 +39,9 @@ function EditProfilePopup(props) {
         required
         minLength={2}
         maxLength={40}
-        className="popup__input popup__input_value_name"
+        className="form__input form__input_value_name"
       />
-      <span className="popup__error popup__error_type_name"></span>
+      <span className="form__error form__error_type_name"></span>
       <input
         placeholder="О себе"
         value={description || ''}
@@ -51,9 +51,9 @@ function EditProfilePopup(props) {
         required
         minLength={2}
         maxLength={200}
-        className="popup__input popup__input_value_about"
+        className="form__input form__input_value_about"
       />
-      <span className="popup__error popup__error_type_about"></span>
+      <span className="form__error form__error_type_about"></span>
     </PopupWithForm>
   );
 }
