@@ -6,10 +6,5 @@
   background: url(../../../images/burger.svg) transparent no-repeat center;
   cursor: pointer;
   border: none;
-}
-
-@media screen and (max-width: 450px) {
-  .header__burger {
-    display: block;
-  }
+  padding: 0;
 }

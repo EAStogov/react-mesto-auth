@@ -11,13 +11,14 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import Header from "./Header";
 
-const MyProfile = ({isLoggedIn, unSign}) => {
+const MyProfile = ({ isLoggedIn, unSign }) => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
   const [cards, setCards] = React.useState([]);
+  const [isAuthShown, setIsAuthShown] = React.useState(false);
 
   React.useEffect(() => {
     api
@@ -39,6 +40,10 @@ const MyProfile = ({isLoggedIn, unSign}) => {
         alert("Что-то пошло не так. Ошибка: " + err);
       });
   }, []);
+  // React.useEffect(() => {
+  //   setIsAuthShown(false);
+  // }, []);
+  
 
   const handleEditProfileClick = () => {
     setIsEditProfilePopupOpen(true);
@@ -118,10 +123,22 @@ const MyProfile = ({isLoggedIn, unSign}) => {
         alert("Что-то пошло не так. Ошибка: " + err);
       });
   }
+
+  function toggleVisibility() {
+    setIsAuthShown(!isAuthShown);
+  }
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <>
-      <Header isLoggedIn={isLoggedIn} userEmail={'userEmail@yandex.ru'} authAction='Выйти' onClick={unSign} route='/signin'/>
+        <Header
+          isLoggedIn={isLoggedIn}
+          userEmail={"userEmail@yandex.ru"}
+          authAction="Выйти"
+          route="/signin"
+          isAuthShown={isAuthShown}
+          toggleVisibility={toggleVisibility}
+          unSign={unSign}
+        />
         <Main
           onEditProfile={handleEditProfileClick}
           onAddPlace={handleAddPlaceClick}

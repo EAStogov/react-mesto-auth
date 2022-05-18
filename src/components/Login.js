@@ -1,6 +1,6 @@
 import Form from "./Form";
 import Header from "./Header";
-const Login = (isLoggedIn) => {
+const Login = ({isLoggedIn}) => {
   return (
     <>
       <Header isLoggedIn={isLoggedIn} authAction='Регистрация' route='/signup'/>

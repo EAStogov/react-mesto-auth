@@ -4,7 +4,7 @@ import Header from "./Header";
 const Register = (isLoggedIn) => {
   return (
     <>
-      <Header isLoggedIn={isLoggedIn} authAction='Войти' route='/signin'/>
+      <Header isLoggedIn={false} authAction='Войти' route='/signin'/>
       <Form name="register" title="Регистрация" isForAuth={true} submitButtonText="Зарегистрироваться">
         <input
           type="email"

@@ -21,7 +21,7 @@ function App() {
           <Register isLoggedIn={isLoggedIn}/>
         }/>
         <Route path="/signin" element={
-          <Login isLoggedIn={isLoggedIn}/>}/>
+          <Login isLoggedIn={false}/>}/>
       </Routes>
     </div>
   );
