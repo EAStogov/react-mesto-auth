@@ -51,8 +51,11 @@ html {
 
 @import url(./blocks/form/__container/form__container.css);
 @import url(./blocks/form/__container/_auth/form__container_auth.css);
+@import url(./blocks/form/__container/_sign-up/form__container_sign-up.css);
 @import url(./blocks/form/__body/form__body.css);
+@import url(./blocks/form/__body/_fill/form__body_fill_infoToolTip.css);
 @import url(./blocks/form/__heading/form__heading.css);
+@import url(./blocks/form/__heading/_hidden/form__heading_hidden.css);
 @import url(./blocks/form/__heading/_auth/form__heading_auth.css);
 @import url(./blocks/form/__input/form__input.css);
 @import url(./blocks/form/__input/_auth/form__input_auth.css);
@@ -62,10 +65,13 @@ html {
 @import url(./blocks/form/__submit/form__submit.css);
 @import url(./blocks/form/__submit/_auth/form__submit_auth.css);
 @import url(./blocks/form/__submit/_disabled/form__submit_disabled.css);
+@import url(./blocks/form/__submit/_hidden/form__submit_hidden.css);
 
 @import url(./blocks/register/__sign-in/register__sign-in.css);
 @import url(./blocks/register/__link/register__link.css);
 
 @import url(./blocks/popup/__image/popup__image.css);
+@import url(./blocks/popup/__sign-up-heading/popup__sign-up-heading.css);
 @import url(./blocks/popup/__image-container/popup__image-container.css);
 @import url(./blocks/popup/__image-description/popup__image-description.css);
+@import url(./blocks/popup/__sign-up-result/popup__sign-up-result.css);

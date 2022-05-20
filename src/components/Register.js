@@ -1,11 +1,22 @@
 import { NavLink } from "react-router-dom";
+import { useState } from 'react';
 import Form from "./Form";
 import Header from "./Header";
+import InfoTooltip from "./InfoTooltip";
 const Register = (isLoggedIn) => {
+  const [isPopupOpened, setIsPopupOpened] = useState(false);
+  
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    setIsPopupOpened(true);
+  }
+  function closePopup() {
+    setIsPopupOpened(false);
+  }
   return (
     <>
       <Header isLoggedIn={false} authAction='Войти' route='/signin'/>
-      <Form name="register" title="Регистрация" isForAuth={true} submitButtonText="Зарегистрироваться">
+      <Form name="register" title="Регистрация" isForAuth={true} submitButtonText="Зарегистрироваться" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Email"
@@ -25,6 +36,7 @@ const Register = (isLoggedIn) => {
         />
       </Form>
       <p className="register__sign-in">Уже зарегистрированы? <NavLink to='/signin' className="register__link page__button">Войти</NavLink></p>
+      <InfoTooltip isSucces={true} isOpen={isPopupOpened} onClose={closePopup}/>
     </>
   )
 }

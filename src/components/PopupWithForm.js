@@ -7,21 +7,22 @@ function PopupWithForm({
   submitButtonText,
   onClose,
   onSubmit,
-  isForAuth
+  isForAuth,
+  isForSignUp
 }) {
   return (
     <section
       id={`${name}-popup`}
       className={`popup ${isOpen  && "popup_opened"}`}>
-        <Form name={name} title={title} onSubmit={onSubmit} isForAuth={isForAuth} submitButtonText={submitButtonText} onClose={onClose}>
+        <Form name={name} title={title} onSubmit={onSubmit} isForAuth={isForAuth} submitButtonText={submitButtonText} onClose={onClose} isForSignUp={isForSignUp}>
           {children}
         <button
           aria-label
           type="button"
           className="popup__close page__button"
           onClick={onClose}
-          style={isForAuth && {display: "none"}}
-        ></button>
+          style={isForAuth && {display: "none"}}>
+        </button>
         </Form>
     </section>
   );
