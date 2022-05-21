@@ -11,7 +11,7 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import Header from "./Header";
 
-const MyProfile = ({ isLoggedIn, unSign }) => {
+const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
   const [currentUser, setCurrentUser] = React.useState({});
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
@@ -40,9 +40,6 @@ const MyProfile = ({ isLoggedIn, unSign }) => {
         alert("Что-то пошло не так. Ошибка: " + err);
       });
   }, []);
-  // React.useEffect(() => {
-  //   setIsAuthShown(false);
-  // }, []);
   
 
   const handleEditProfileClick = () => {
@@ -132,7 +129,7 @@ const MyProfile = ({ isLoggedIn, unSign }) => {
       <>
         <Header
           isLoggedIn={isLoggedIn}
-          userEmail={"userEmail@yandex.ru"}
+          userEmail={userEmail}
           authAction="Выйти"
           route="/signin"
           isAuthShown={isAuthShown}
