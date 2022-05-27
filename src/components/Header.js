@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function Header({isLoggedIn, userEmail, authAction, route, isAuthShown, toggleVisibility, unSign}) {
   function handleClick() {
     isAuthShown && toggleVisibility();
-    unSign();
+    unSign && unSign();
   }
   return (
       <header className={`header ${isLoggedIn && 'header_column'}`}>
