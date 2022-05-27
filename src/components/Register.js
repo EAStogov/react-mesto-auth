@@ -3,7 +3,7 @@ import { useState } from "react";
 import Form from "./Form";
 import Header from "./Header";
 import InfoTooltip from "./InfoTooltip";
-import * as auth from "./Auth";
+import * as auth from "../utils/Auth";
 const Register = ({ isLoggedIn, onSubmit, onClosePopup, isOpen, isSucces }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

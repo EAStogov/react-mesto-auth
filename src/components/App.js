@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-import { authorizate } from "./Auth";
+import { authorizate } from "../utils/Auth";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);

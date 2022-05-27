@@ -2,7 +2,7 @@ import { useState } from "react";
 import Form from "./Form";
 import Header from "./Header";
 import InfoTooltip from "./InfoTooltip";
-import * as auth from "./Auth";
+import * as auth from "../utils/Auth";
 const Login = ({ isLoggedIn, onSubmit, onClosePopup, isOpen, isSucces, signIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
