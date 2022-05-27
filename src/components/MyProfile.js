@@ -123,54 +123,52 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
   }
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <>
-        <Header
-          isLoggedIn={isLoggedIn}
-          userEmail={userEmail}
-          authAction="Выйти"
-          route="/signin"
-          isAuthShown={isAuthShown}
-          toggleVisibility={toggleVisibility}
-          unSign={unSign}
-        />
-        <Main
-          onEditProfile={handleEditProfileClick}
-          onAddPlace={handleAddPlaceClick}
-          onEditAvatar={handleEditAvatarClick}
-          onCardClick={handleCardClick}
-          cards={cards}
-          onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
-        />
-        <Footer />
+      <Header
+        isLoggedIn={isLoggedIn}
+        userEmail={userEmail}
+        authAction="Выйти"
+        route="/signin"
+        isAuthShown={isAuthShown}
+        toggleVisibility={toggleVisibility}
+        unSign={unSign}
+      />
+      <Main
+        onEditProfile={handleEditProfileClick}
+        onAddPlace={handleAddPlaceClick}
+        onEditAvatar={handleEditAvatarClick}
+        onCardClick={handleCardClick}
+        cards={cards}
+        onCardLike={handleCardLike}
+        onCardDelete={handleCardDelete}
+      />
+      <Footer />
 
-        <EditProfilePopup
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onUpdateUser={handleUpdateUser}
-        />
+      <EditProfilePopup
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+        onUpdateUser={handleUpdateUser}
+      />
 
-        <AddPlacePopup
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onAddPlace={handleAddPlaceSubmit}
-        />
+      <AddPlacePopup
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+        onAddPlace={handleAddPlaceSubmit}
+      />
 
-        <PopupWithForm
-          name="confirm"
-          title="Вы уверены?"
-          onClose={closeAllPopups}
-          submitButtonText="Да"
-        />
+      <PopupWithForm
+        name="confirm"
+        title="Вы уверены?"
+        onClose={closeAllPopups}
+        submitButtonText="Да"
+      />
 
-        <EditAvatarPopup
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onUpdateAvatar={handleUpdateAvatar}
-        />
+      <EditAvatarPopup
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+        onUpdateAvatar={handleUpdateAvatar}
+      />
 
-        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
-      </>
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </CurrentUserContext.Provider>
   );
 };
