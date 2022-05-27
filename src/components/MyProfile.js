@@ -29,8 +29,6 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
       .catch((err) => {
         alert("Что-то пошло не так. Ошибка: " + err);
       });
-  }, []);
-  React.useEffect(() => {
     api
       .getInitialCards()
       .then((cardsList) => {
@@ -40,7 +38,6 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
         alert("Что-то пошло не так. Ошибка: " + err);
       });
   }, []);
-  
 
   const handleEditProfileClick = () => {
     setIsEditProfilePopupOpen(true);
