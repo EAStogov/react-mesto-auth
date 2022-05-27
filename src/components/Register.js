@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Form from "./Form";
 import Header from "./Header";
@@ -7,6 +7,7 @@ import * as auth from "../utils/Auth";
 const Register = ({ isLoggedIn, onSubmit, onClosePopup, isOpen, isSucces }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -21,6 +22,7 @@ const Register = ({ isLoggedIn, onSubmit, onClosePopup, isOpen, isSucces }) => {
     auth.register(password, email).then((res) => {
       onSubmit(res);
       if (res.ok) {
+        navigate('/signin')
         return res.json();
       } else {
         return Promise.reject(`Что-то пошло не так. Код ошибки: ${res.status}`);

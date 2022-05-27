@@ -1,15 +1,10 @@
 import succesLogo from '../images/succes.svg';
 import failLogo from '../images/fail.svg';
 import PopupWithForm from './PopupWithForm';
-import { useNavigate } from 'react-router-dom';
 
 const InfoTooltip = ({isSucces, isOpen, onClose}) => {
-  const navigate = useNavigate();
   function closePopup() {
     onClose();
-    if (isSucces) {
-      navigate('/signin');
-    }
   }
   return (
     <PopupWithForm isOpen={isOpen} name='infoToolTip' onClose={closePopup} isForSignUp={true}>
