@@ -2,8 +2,7 @@ import { useState } from "react";
 import Form from "./Form";
 import Header from "./Header";
 import InfoTooltip from "./InfoTooltip";
-import * as auth from "../utils/Auth";
-const Login = ({ isLoggedIn, onSubmit, onClosePopup, isOpen, isSucces, signIn }) => {
+const Login = ({ isLoggedIn, onSubmit, onClosePopup, isOpen, isSucces }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,36 +16,7 @@ const Login = ({ isLoggedIn, onSubmit, onClosePopup, isOpen, isSucces, signIn })
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    auth
-      .login(password, email)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          onSubmit(false);
-        }
-      })
-      .then((data) => {
-        localStorage.setItem("token", data.token);
-      })
-      .then(() => {
-        auth
-          .authorizate(localStorage.getItem("token"))
-          .then((res) => {
-            onSubmit(res);
-            if (res.ok) {
-              return res.json();
-            } else {
-              onSubmit(false);
-            }
-          })
-          .then((res) => {
-            signIn(res.data.email);
-          })
-          .catch(err => {
-            alert("Что-то пошло не так. Ошибка: " + err);
-          });
-      });
+    onSubmit(password, email);
   }
 
   return (
