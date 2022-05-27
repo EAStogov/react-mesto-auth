@@ -6,8 +6,7 @@ const Form = ({name, title, onSubmit, submitButtonText, children, isForAuth, isF
         action="url"
         onSubmit={onSubmit}
         name={`form__form-${name}`}
-        className={`form__body form__body_fill_${name}`}
-        noValidate>
+        className={`form__body form__body_fill_${name}`}>
         {children}
         <button type="submit" className={`form__submit page__button ${isForAuth && 'form__submit_auth'} ${isForSignUp && 'form__submit_hidden'}`}>
           {submitButtonText}
