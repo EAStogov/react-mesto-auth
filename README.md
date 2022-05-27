@@ -19,3 +19,5 @@
 * Figma
 
 #### Все фотографии взяты с реусурса бесплатных фотографий https://unsplash.com
+
+ССылка на GitHub Pages: https://eastogov.github.io/react-mesto-auth
