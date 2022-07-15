@@ -2,7 +2,7 @@
   "name": "mesto-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eastogov.github.io/react-mesto-auth",
+  "homepage": "http://esto.mesto.nomoredomains.xyz",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && scp -r ./build/* esto@51.250.24.17:/home/esto/react-mesto-api-full/frontend"
   },
   "eslintConfig": {
     "extends": [

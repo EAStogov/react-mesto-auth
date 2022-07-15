@@ -32,7 +32,7 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
     api
       .getInitialCards()
       .then((cardsList) => {
-        setCards(cardsList);
+        setCards(cardsList.data);
       })
       .catch((err) => {
         alert("Что-то пошло не так. Ошибка: " + err);
@@ -61,7 +61,7 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
     api
       .editProfile(data)
       .then((user) => {
-        setCurrentUser(user);
+        setCurrentUser(user.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -72,7 +72,7 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
     api
       .editAvatar(data)
       .then((user) => {
-        setCurrentUser(user);
+        setCurrentUser(user.data);
         closeAllPopups();
         cleanForm();
       })
@@ -82,12 +82,12 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
   };
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((userId) => userId === currentUser._id);
 
     api
       .toggleLikeAction(isLiked, card._id)
       .then((newCard) => {
-        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+        setCards((state) => state.map((c) => (c._id === card._id ? newCard.data : c)));
       })
       .catch((err) => {
         alert("Что-то пошло не так. Ошибка: " + err);
@@ -109,7 +109,7 @@ const MyProfile = ({ isLoggedIn, unSign, userEmail }) => {
     api
       .postNewCard(data)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
         cleanForm();
       })

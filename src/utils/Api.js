@@ -15,15 +15,17 @@ class API {
   }
 
   getInitialCards() {
-    return this._makeRequest(fetch(`${this._baseUrl}/cards`, {
+    return this._makeRequest(fetch(`http://api.esto.mesto.nomoredomains.xyz/cards`, {
       method: 'GET',
+      credentials: 'include',
       headers: this._headers
     }));
   }
 
   getProfileInfo() {
-    return this._makeRequest(fetch(`${this._baseUrl}/users/me`, {
+    return this._makeRequest(fetch(`http://api.esto.mesto.nomoredomains.xyz/users/me`, {
       method: 'GET',
+      credentials: 'include',
       headers: this._headers
     }));
   }
@@ -31,6 +33,7 @@ class API {
   postNewCard(data) {
     return this._makeRequest(fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: data.about,
@@ -40,8 +43,9 @@ class API {
   }
 
   editProfile(data) {
-    return this._makeRequest(fetch(`${this._baseUrl}/users/me`, {
+    return this._makeRequest(fetch(`http://api.esto.mesto.nomoredomains.xyz/users/me`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -53,6 +57,7 @@ class API {
   editAvatar(avatar) {
     return this._makeRequest(fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         avatar: avatar
@@ -63,6 +68,7 @@ class API {
   _like(cardId) {
     return this._makeRequest(fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
+      credentials: 'include',
       headers: this._headers
     }));
   }
@@ -70,12 +76,13 @@ class API {
   _dislike(cardId) {
     return this._makeRequest(fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers
     }));
   }
 
-  toggleLikeAction(isDelete, cardId) {
-    if (isDelete) {
+  toggleLikeAction(isDislike, cardId) {
+    if (isDislike) {
       return this._dislike(cardId);
     } else {
       return this._like(cardId);
@@ -85,14 +92,14 @@ class API {
   deleteCard(cardId) {
     return this._makeRequest(fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers
     }));
   }
 }
 const api = new API({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-38',
+  baseUrl: 'http://api.esto.mesto.nomoredomains.xyz',
   headers: {
-    authorization: 'c110315e-0183-458e-8866-3f24fd7f9a0a',
     'Content-Type': 'application/json'
   }
 });

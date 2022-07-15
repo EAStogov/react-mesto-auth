@@ -1,7 +1,7 @@
 import ProtectedRoute from "./ProtectedRoute";
 import MyProfile from "./MyProfile";
 import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import * as auth from "../utils/Auth";
@@ -14,16 +14,17 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = document.cookie.slice(4);
+    
     if (token) {
       auth
-        .authorizate(token)
+        .authorizate()
         .then((res) => {
           return res.json();
         })
         .then((res) => {
           if (res) {
-            signIn(res.data.email);
+            signIn(res.email);
           }
         });
     }
@@ -32,12 +33,14 @@ function App() {
   function signIn(email) {
     setUserEmail(email);
     setLoggedIn(true);
-    navigate("/");
+    navigate("/users/me");
   }
 
   function unSign() {
     setLoggedIn(false);
-    localStorage.removeItem("token");
+    auth
+      .logout()
+      .catch(err => alert("Что-то пошло не так. Ошибка: " + err))
   }
 
   function handleAuthSubmit(requestResponse) {
@@ -73,7 +76,7 @@ function App() {
         }
       })
       .then((data) => {
-        localStorage.setItem("token", data.token);
+        document.cookie = `jwt=${data.token}`;
         signIn(email);
       })
       .catch(() => {
@@ -85,7 +88,7 @@ function App() {
     <div className="page">
       <Routes>
         <Route
-          path="/"
+          path="/users/me"
           element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
               <MyProfile isLoggedIn={isLoggedIn} unSign={unSign} userEmail={userEmail} />
@@ -115,6 +118,12 @@ function App() {
               isSucces={isAuthSucces}
               signIn={signIn}
             />
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Navigate to="/users/me"/>
           }
         />
       </Routes>
