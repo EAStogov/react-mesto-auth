@@ -15,7 +15,7 @@ class API {
   }
 
   getInitialCards() {
-    return this._makeRequest(fetch(`http://api.esto.mesto.nomoredomains.xyz/cards`, {
+    return this._makeRequest(fetch(`${this._baseUrl}/cards`, {
       method: 'GET',
       credentials: 'include',
       headers: this._headers
@@ -23,7 +23,7 @@ class API {
   }
 
   getProfileInfo() {
-    return this._makeRequest(fetch(`http://api.esto.mesto.nomoredomains.xyz/users/me`, {
+    return this._makeRequest(fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
       headers: this._headers
@@ -43,7 +43,7 @@ class API {
   }
 
   editProfile(data) {
-    return this._makeRequest(fetch(`http://api.esto.mesto.nomoredomains.xyz/users/me`, {
+    return this._makeRequest(fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       credentials: 'include',
       headers: this._headers,
@@ -98,7 +98,7 @@ class API {
   }
 }
 const api = new API({
-  baseUrl: 'http://api.esto.mesto.nomoredomains.xyz',
+  baseUrl: 'https://api.esto.mesto.nomoredomains.xyz',
   headers: {
     'Content-Type': 'application/json'
   }
